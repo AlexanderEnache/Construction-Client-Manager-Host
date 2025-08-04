@@ -2,8 +2,13 @@ import { createClient } from "@/lib/supabase/server";
 import { AddProposalForm } from "@/components/AddProposalForm";
 import { notFound } from "next/navigation";
 
-export default async function Page({ params }: { params: { clientId: string } }) {
+interface PageProps {
+  params: {
+    clientId: string;
+  };
+}
 
+export default async function Page({ params }: PageProps) {
   const supabase = await createClient();
 
   const { data: client, error } = await supabase
