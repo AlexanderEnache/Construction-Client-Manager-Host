@@ -4,13 +4,8 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import FilePreview from "@/components/filePreview";
 
-interface Props {
-  params: {
-    proposalId: string;
-  };
-}
+export default async function Page({ params }: { params: { proposalId: string } }) {
 
-export default async function Page({ params }: Props) {
   const supabase = await createClient();
 
   const { data: proposal, error } = await supabase
