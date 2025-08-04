@@ -1,3 +1,4 @@
+import React from "react";
 import { createClient } from "@/lib/supabase/server";
 import { AddProposalForm } from "@/components/AddProposalForm";
 import { notFound } from "next/navigation";
