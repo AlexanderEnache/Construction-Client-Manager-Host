@@ -1,11 +1,15 @@
-// app/view-file/[proposalId]/page.tsx
 import React from "react";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import FilePreview from "@/components/filePreview";
 
-export default async function Page({ params }: { params: { proposalId: string } }) {
+interface PageProps {
+  params: {
+    proposalId: string;
+  };
+}
 
+export default async function Page({ params }: PageProps) {
   const supabase = await createClient();
 
   const { data: proposal, error } = await supabase
@@ -23,11 +27,9 @@ export default async function Page({ params }: { params: { proposalId: string } 
     .single();
 
   if (error || !proposal) {
-    console.error(error);
+    console.error("Supabase error:", error);
     return notFound();
   }
-
-  // console.log("INFORMATION " + proposal.clients?.email);
 
   return (
     <div className="max-w-4xl mx-auto p-6">
