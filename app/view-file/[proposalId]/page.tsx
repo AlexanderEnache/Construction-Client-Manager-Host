@@ -37,8 +37,8 @@ export default async function Page({ params }: { params: { proposalId: string } 
         fileUrl={proposal.file_url}
         // signerName={proposal.clients?.name ?? "Unknown"}
         // signerEmail={proposal.clients?.email ?? "Unknown"}
-        signerName="Name"
-        signerEmail="alex.d.enache@gmail.com"
+        signerName={"Name"}
+        signerEmail={"alex.d.enache@gmail.com"}
         proposalTitle={proposal.title}
       />
     </div>
